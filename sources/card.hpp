@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 namespace ariel{
     enum Rank{TWO=1, THREE=2, FOUR=3, FIVE=4, SIX=5, SEVEN=6, EIGHT=7, NINE=8, TEN=9,
@@ -10,18 +11,24 @@ namespace ariel{
             Rank rank;
             Suit suit;
         public:
-            Card(int rank, int suit){}
-            bool operator<(const Card& c1, const Card& c2) {
-                if((c1.rank==ACE)&&(c2.rank==TWO)){
+            Card();
+            Card(Rank, Suit);
+            Card(const Card&);
+            std::string rankToString();
+            std::string suitToString();
+            std::string toString();
+            bool operator<(const Card& c2) {
+                if(this->rank == ACE && c2.rank == TWO) {
                     return true;
                 }
-                return (c1.rank<c2.rank);
+                return this->rank < c2.rank;
             }
-            bool operator>(const Card& c1, const Card& c2) {
-                if((c1.rank==TWO)&&(c2.rank==ACE)){
+            bool operator>(const Card& c2) {
+                if(this->rank == ACE && c2.rank == TWO) {
                     return true;
                 }
-                return (c1.rank<c2.rank);
+                return this->rank > c2.rank;
             }
+
     };
 }

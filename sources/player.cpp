@@ -1,13 +1,12 @@
 #include "player.hpp"
 
 using namespace ariel;
-Player::Player() {
-    this->name="unknown";
-    this->stackCards=NULL;
-    this->takenCards=NULL;
-}
-Player::Player(std::string name){
-    this->name=name;
-    this->stackCards=NULL;
-    this->takenCards=NULL;
-}
+
+Player::Player(const string& name) : name(name){}
+int Player::stacksize(){return this->stackCards.size();}
+int Player::cardesTaken(){return this->takenCards.size();}
+void Player::pushStackCards(Card& card){this->stackCards.push(card);}
+void Player::pushCardsTaken(Card& card){this->takenCards.push(card);}
+void Player::popStackCards(){stackCards.pop();}
+Card Player::topStackCards(){return stackCards.top();}
+string Player::getName(){return this->name;}

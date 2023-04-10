@@ -8,17 +8,20 @@ using namespace std;
 namespace ariel{
     class Player {
         private:
-            std::string name;
-            std::stack<Card*> stackCards;
-            std::stack<Card*> takenCards; // array of taken cards
+            string name;
+            std::stack<Card> stackCards; // stack of cards
+            std::stack<Card> takenCards; // stack of taken cards
         public:
-            Player(){}
-            Player(std::string){}
-            int stacksize(){return this->stackCards.size();}
-            int cardesTaken(){return this->takenCards.size();}
-            void pushStackCards(Card* card){this->stackCards.push(card);}
-            void pushCardsTaken(Card* card){this->takenCards.push(card);}
-            Card* popStackCards(){return stackCards.pop();}
+            Player();
+            Player(const string&);
+            //Player(Player&);
+            int stacksize();
+            int cardesTaken();
+            void pushStackCards(Card&);
+            void pushCardsTaken(Card&);
+            void popStackCards();
+            Card topStackCards();
+            string getName();
     };
 
 }
