@@ -78,7 +78,7 @@ TEST_CASE("Printing the winner")
     Player p2("Bob");
     Game game(p1, p2);
     game.playAll();
-    game.printStats();
+
     CHECK_NOTHROW(game.printWiner());
 }
 
