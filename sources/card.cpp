@@ -5,11 +5,6 @@ Card::Card(Rank rank, Suit suit) {
     this->rank=rank;
     this->suit=suit;
 }
-Card::Card(const Card& other){
-    this->rank=other.rank;
-    this->suit=other.suit;
-}
-Card::Card() : rank(Rank::TWO), suit(Suit::SPADES) {}
 
 std::string Card::rankToString() {
     switch (this->rank) {
@@ -56,4 +51,6 @@ std::string Card::suitToString() {
 std::string Card::toString(){
     return (rankToString()+" of "+ suitToString());
 }
+
+
 

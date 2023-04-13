@@ -1,5 +1,5 @@
 #pragma once
-#include "string"
+#include <string>
 #include "card.hpp"
 #include <stack>
 
@@ -14,12 +14,12 @@ namespace ariel{
         public:
             Player();
             Player(const string&);
-            //Player(Player&);
             int stacksize();
             int cardesTaken();
             void pushStackCards(Card&);
             void pushCardsTaken(Card&);
             void popStackCards();
+            void popCardsTaken();
             Card topStackCards();
             string getName();
     };

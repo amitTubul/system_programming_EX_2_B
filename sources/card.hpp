@@ -11,24 +11,15 @@ namespace ariel{
             Rank rank;
             Suit suit;
         public:
-            Card();
             Card(Rank, Suit);
-            Card(const Card&);
             std::string rankToString();
             std::string suitToString();
             std::string toString();
-            bool operator<(const Card& c2) {
-                if(this->rank == ACE && c2.rank == TWO) {
+            bool operator<(const Card& card) {
+                if(this->rank == ACE && card.rank == TWO) {
                     return true;
                 }
-                return this->rank < c2.rank;
+                return this->rank < card.rank;
             }
-            bool operator>(const Card& c2) {
-                if(this->rank == ACE && c2.rank == TWO) {
-                    return true;
-                }
-                return this->rank > c2.rank;
-            }
-
     };
 }

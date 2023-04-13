@@ -1,18 +1,20 @@
 #pragma once
 #include "player.hpp"
+#include <tuple>
+#include <vector>
 #include <queue>
-#include <string>
+#include <stack>
 
 namespace ariel {
     class Game {
         private:
-            Player& p1;
-            Player& p2;
+            Player& player1;
+            Player& player2;
             std::queue<string> turns;
-            std::string * statistics;
+            std::vector<std::tuple<Player, Card, bool>>  statistics;
             std::stack<Card> cards;
             string winner;
-            bool hasWinner;
+            bool* hasWinner=new bool;
         public:
             Game(Player&, Player&);
             void playTurn();
@@ -22,12 +24,8 @@ namespace ariel {
             void printLog();
             void printStats();
             void createDeckOfCards();
-            void pushTurnString(string, string, string);
-            void updateStats();
-            std::string getWinner(){
-                if(this->hasWinner)return this->winner;
-                return NULL;
-            }
+            void updateStats(Player&, Card&, bool&);
+            void setWinner();
 
         };
     void shuffleCards(std::stack<Card>&, size_t);
